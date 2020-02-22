@@ -1,0 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app"> 
+    <input type="text">
+    <p>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
+    <a v-bind:href="link">Google</a>
+    <hr>
+    <p v-html:href="linkhtml"></p>
+</div>
+
+<script> 
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Titulo Novo',
+            link: 'https://google.com.br',
+            linkhtml: '<a href="https://google.com.br">Google</a>'
+        },
+        methods: {
+            alteraTitulo(event) {
+                this.titulo = event.target.value
+            },
+            saudacao: function() {
+                return this.titulo
+            }
+
+        }
+    })
+</script>
